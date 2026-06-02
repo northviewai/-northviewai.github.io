@@ -347,5 +347,26 @@
   <p style="color:#cccccc;font-size:12px;">Built for Northwest UK letting agents</p>
 </footer>
 
+<!-- Inline Demo Modal -->
+<div id="demo-modal" onclick="if(event.target===this){this.style.display='none';document.getElementById('demo-iframe').src=''}" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;">
+  <div style="position:relative;width:90%;max-width:900px;">
+    <button onclick="document.getElementById('demo-modal').style.display='none';document.getElementById('demo-iframe').src=''" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:30px;cursor:pointer;line-height:1;">&#x2715;</button>
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
+      <iframe id="demo-iframe" src="" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var demoLink = document.querySelector('a[href*="youtu.be"]');
+  if (demoLink) {
+    demoLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('demo-iframe').src = 'https://www.youtube.com/embed/dWEL4PmYPcI?autoplay=1';
+      document.getElementById('demo-modal').style.display = 'flex';
+    });
+  }
+});
+</script>
 </body>
 </html>
